@@ -1,0 +1,12 @@
+@forward 'utils';
+@forward 'theme';
+@forward 'component';
+@forward 'layout';
+
+
+
+.demo h1 {
+	font-size: 100px;
+	text-transform: uppercase;
+    line-height: 94px;
+}

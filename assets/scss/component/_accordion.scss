@@ -1,0 +1,204 @@
+@use '../utils' as *;
+
+
+/* process-bar */
+.sp-process{
+    &-box{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &-crad{
+        position: relative;
+        width: 150px;
+        height: 150px;
+    }
+    &-percent{
+        position: relative;
+        width: 150px;
+        height: 150px;  
+    }
+    &-percent svg{
+        position: relative;
+        width: 150px;
+        height: 150px;
+        transform: rotate(270deg);
+        
+        
+    }
+    &-percent svg circle {
+        width: 100%;
+        height: 100%;
+        stroke-width: 3;
+        stroke: var(--text-color);
+        fill: var(--tp-white-clr);
+        transform: translate(5px,5px);
+    }
+    &-number{
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &-number h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--tp-black-clr);
+        font-size: 2.5em;
+        font-weight: 700;
+    }
+    &-number span{
+        font-size: 10px;
+        font-weight: 300;
+        color: var(--tp-white-clr)
+    }
+    &-number p{
+        font-weight: 300;
+        color: #fff;
+        font-size: .75em;
+        text-transform: uppercase;
+        color: var(--tp-black-clr);
+        letter-spacing: 2px;
+    }
+}
+
+.sp-process-percent svg circle:nth-child(2) {
+  stroke: var(--clr);
+  stroke-dasharray: 440;
+  stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+  animation-delay: .5s;
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.sp-process-dots{
+    position: absolute;
+    z-index: 10;
+    inset: 5px;
+    transform: rotate(calc(3.6deg * var(--num)));
+    /* 360deg /100 = 3.6 */
+    animation: animateDot 2s linear forwards;
+}
+@keyframes animateDot{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+.sp-process-dots::before{
+    position: absolute;
+    content: "";
+    top: -5px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--clr);
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr);
+}
+
+
+
+  /* Dark Mode */
+  body.dark-mode {
+	background-color: #121212;
+	color: #f0f0f0;
+  }
+  
+  /* Button Styling */
+
+  /* drak-mood */
+#themeToggler {
+    display: flex;
+    height: 40px;
+    width: 85px;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 9999999;
+    background-color: white;
+    color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#themeToggler span {
+    display: flex;
+    width: 50%;
+	height: 100%;
+    justify-content: space-between;
+    align-items: center;
+	text-align: center;
+    font-size: 20px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+
+.dark-theme-variables {
+    --background-color: black;
+    --text-color: white;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+#themeToggler .active {
+	color: #000;
+	background: red;
+    opacity: 0.5; /* Example of an effect */
+}
+
+
+// contact
+#contact h2 {
+    margin-bottom: 20px;
+}
+
+.sp-contact-wrap form {
+    margin: 0 auto;
+    text-align: left;
+}
+
+.sp-input-group {
+    margin-bottom: 15px;
+}
+
+.sp-input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sp-input-group input,
+.sp-input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.sp-btn {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.sp-btn:hover {
+    background: #555;
+}

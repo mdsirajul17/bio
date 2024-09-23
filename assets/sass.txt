@@ -1,0 +1,1 @@
+sass --watch D:\protfolio-bio\assets\scss\main.scss:D:\protfolio-bio\assets\css\style.css

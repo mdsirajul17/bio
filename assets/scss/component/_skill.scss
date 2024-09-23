@@ -1,0 +1,85 @@
+@use '../utils' as *;
+
+
+.tp-skill{
+    &-item{
+        margin-bottom: 25px;
+    }
+    &-item label {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--tp-white-clr);
+        margin-bottom: 8px;
+        line-height: 1;
+    }
+    &-item .progress-bar {
+        background-color: violet;
+    }
+    &-item .progress {
+        height: 8px;
+        background-color: transparent;
+        border-radius: 4px;
+    }
+    &-item .progress-stacked {
+        height: 12px;
+        background-color: transparent;
+        border-radius: 4px;
+    }
+}
+
+.progress-outer {
+    border: 1px solid #57595C;
+    padding: 3px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progress-num {
+    position: absolute;
+    left: calc(25% - 31px);
+    top: -36px;
+    background: violet;
+    color: var(--tp-white-clr);
+    padding: 6px 5px;
+    font-size: 11px;
+    line-height: 1;
+    border-radius: 4px;
+    &:before{
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0 10px 10px 0;
+        border-color: transparent violet transparent transparent;
+        transform: rotate(0deg);
+        content: "";
+        position: absolute;
+        top: 99%;
+        right: 8px
+    }
+}
+
+
+
+.tp-card{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    &-icon{
+        margin-bottom: 30px;
+    }
+    &-icon img{
+        height: 70px;
+        width: 70px;
+    }
+    &-text{
+        color: var(--tp-white-clr);
+        font-size: 18px;
+    }
+    
+}
+.sp-btns {
+    left: 20px;
+    bottom: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}

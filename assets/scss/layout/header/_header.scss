@@ -1,0 +1,192 @@
+@use '../../utils' as *;
+
+.sp-header-area {
+    background-color: var(--tp-black-clr);
+    box-shadow: 20px 20px 50px #0a0a0a; /* Deep inset shadow */
+}
+.sp-logo-box{
+    & h2{
+        color: aqua;
+        font-size: 30px;
+        text-transform: uppercase;
+        & span{
+            color: rgb(215, 146, 55);
+        }
+    }
+}
+
+.sp-main-menu{
+    & ul{
+        list-style: none;
+        & > li{
+            display: inline-block;
+            text-transform: capitalize;
+            margin-left: 20px;
+            position: relative;
+            & > a{
+                color: var(--tp-white-clr);
+                font-size: 20px;
+                transition: .3s;
+            }
+            & > .sp-sub-menu{
+                position: absolute;
+                top: 130%;
+                left: 0;
+                width: 250px;
+                background-color: #ffffff; /* White background */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                transition: .3s;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 9999;
+                & > li{
+                    margin-left: 0;
+                    padding-bottom: 10px;
+                    display: block;
+                    padding: 8px 15px;
+                    & > a{
+                       color: #222;
+                       transition: .3s;
+                       &:hover{
+                        color: var(--tp-common-clr);
+                       } 
+                    }
+                }
+                & :nth-child(6){
+                    border-bottom: none;
+                }
+            }
+            &:hover{
+                & > a{
+                    color: var(--tp-common-clr);
+                }
+                & > .sp-sub-menu{
+                    opacity: 1;
+                    visibility: visible;
+                    top: 105%;
+                }
+            }
+        }
+        & :nth-child(1){
+            margin-left: 0px;
+        }
+    }
+}
+
+.sp-right{
+    &-serch-bar{
+        & button{
+            margin-right: 25px;
+            margin-top: 5px;
+            color: var(--tp-white-clr);
+            & i{
+                font-size: 25px;
+                color: var(--tp-white-clr);
+            }
+        }
+    }
+    &-menu-bar{
+        & button{
+            color: var(--tp-white-clr);
+            & span{
+                font-size: 35px;
+            }
+        }
+    }
+}
+
+
+
+
+.tp-header-toogle{
+    & button{
+        background: #23252D;
+        padding: 11px 16px;
+        @include flexbox();
+        align-items: center;
+        color: #fff;
+        font-size: 40px;
+        border-radius: 10px;
+    }
+}
+
+
+// mega menu 
+.tp-main-menu ul > li:hover .tp-mega-menu{
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+}
+.tp-mega-menu {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 1200px;
+    background: #fff;
+    padding: 25px;
+    padding-bottom: 0;
+    box-shadow: 0px 20px 30px rgba(1, 15, 28, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    @include transition(.3s);
+    @media #{$lg,$lg,$md,$xs}{
+        width: auto;
+        opacity: 1;
+        visibility: visible;
+        transition: none;
+        position: static;
+        display: none;
+    }
+  }
+.tp-home-thumb {
+    text-align: center;
+  }
+  .tp-home-title {
+    font-size: 17px;
+    margin-top: 19px;
+    margin-bottom: 0;
+    transition: .3s;
+    &:hover{
+        color: #0057FC;
+    }
+  }
+  .tp-home-thumb img {
+    box-shadow: 0px 2px 6px rgba(1, 15, 28, 0.2);
+  }
+
+  
+  @keyframes tpfadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .tpfadeInDown {
+    animation: tpfadeInDown 1s ease-out forwards;
+  }
+  
+
+
+//  sticky 
+.header-sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+    -webkit-animation: .7s ease-in-out 0s normal none 1 running tpfadeInDown;
+    animation: .7s ease-in-out 0s normal none 1 running tpfadeInDown;
+    z-index: 9999;
+    box-shadow: 0px 4px 10px rgba(255, 255, 0, 0.5); /* More intense yellow */
+    background-color: yellow;
+    &.tp-sticky-black{
+        background-color: var(--tp-common-black);
+    }
+    &.tp-sticky-white{
+        background-color: var(--tp-white);
+    }
+}
